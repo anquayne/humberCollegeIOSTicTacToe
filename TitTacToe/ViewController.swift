@@ -10,9 +10,20 @@ import UIKit
 
 class ViewController: UIViewController {
 
+  
+    var views : [UIView]!
+    @IBOutlet weak var viewContainer: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        views = [UIView]()
+        views.append(RegisterVC().view)
+        views.append(GamePlayVC().view)
+        
+        for items in views { // adding each element to the the viewContainer
+            viewContainer.addSubview(items)
+        }
+        viewContainer.bringSubview(toFront: views[0])
     }
 
     override func didReceiveMemoryWarning() {
@@ -20,6 +31,9 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    @IBAction func switchView(_ sender: UISegmentedControl) {
+        viewContainer.bringSubview(toFront: views[sender.selectedSegmentIndex])
+    }
+    
 }
 
