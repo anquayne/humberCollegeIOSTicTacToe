@@ -10,9 +10,12 @@ import UIKit
 
 class GamePlayVC: UIViewController {
 
+    
+    @IBOutlet var buttonCollection: [UIButton]!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+print("View did load")
         // Do any additional setup after loading the view.
     }
 
@@ -31,5 +34,20 @@ class GamePlayVC: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    
+    @IBAction func getButtonClicked(_ sender: UIButton) {
+        for button in buttonCollection {
+            if (button.tag == sender.tag) {
+                if(button.titleLabel!.text!.elementsEqual("")){
+                    button.titleLabel?.text="X"
+                }
+            }
+        }
+    }
+    
+    
+    @IBAction func butoon(_ sender: UIButton) {
+        
+    }
 }

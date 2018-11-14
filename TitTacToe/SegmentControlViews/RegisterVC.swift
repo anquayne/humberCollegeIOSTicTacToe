@@ -32,4 +32,7 @@ class RegisterVC: UIViewController {
     }
     */
 
+    func getButtonClicked(){
+        
+    }
 }
